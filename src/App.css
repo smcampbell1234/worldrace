@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+/**** Login Page ****/
+.login-icon {
+  width: 200px;
+  height: 200px;
+  margin: 25px;
+}
