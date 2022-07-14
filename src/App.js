@@ -20,23 +20,24 @@ import {
 } from './pages';
 // components
 import Navbar from './components/Navbar';
+import {useUserContext} from './context/user_context'
 
 const App = () => {
-  const [user, setUser] = useState(null);
+  const {myUser,setMyUser} = useUserContext();
 
   return (
     <div className="App">
       <BrowserRouter>
       {
-        !!user &&
-        <Navbar user={user}/>
+        !!myUser &&
+        <Navbar myUser={myUser} setMyUser={setMyUser}/>
       }
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
             path="map"
             element={
-              <ProtectedPage user={user}>
+              <ProtectedPage>
                 <Map />
               </ProtectedPage>
             }
@@ -44,7 +45,7 @@ const App = () => {
           <Route
             path="log"
             element={
-              <ProtectedPage user={user}>
+              <ProtectedPage>
                 <Log />
               </ProtectedPage>
             }
@@ -52,7 +53,7 @@ const App = () => {
           <Route
             path="team"
             element={
-              <ProtectedPage user={user}>
+              <ProtectedPage>
                 <Team />
               </ProtectedPage>
             }
@@ -60,12 +61,12 @@ const App = () => {
           <Route
             path="leaderboard"
             element={
-              <ProtectedPage user={user}>
+              <ProtectedPage>
                 <LeaderBoard />
               </ProtectedPage>
             }
           />
-          <Route path="login" element={<Login setUser={setUser} />} />
+          <Route path="login" element={<Login />} />
           <Route path="account" element={<Account />} />
           <Route path="settings" element={<Settings />} />
           <Route path="store" element={<Store />} />

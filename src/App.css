@@ -43,3 +43,12 @@
   height: 200px;
   margin: 25px;
 }
+
+/**** Navbar ****/
+.logout {
+  color: blue;
+  font-weight: normal;
+  text-decoration: underline;
+  font-size: 1rem;
+  cursor: pointer;
+}
